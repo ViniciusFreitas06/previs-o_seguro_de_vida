@@ -1,69 +1,104 @@
-# 🧠 Previsão de Seguro de Vida
+# 💡 Previsão de Custo de Seguro de Saúde
 
-Este projeto utiliza aprendizado de máquina (Machine Learning) para prever o custo de um seguro de vida, com base em informações pessoais e de saúde.
-O projeto inclui um dashboard interativo feito com Streamlit e um modelo treinado com Random Forest.
+Este projeto tem como objetivo **prever o custo anual e mensal de um seguro de saúde** com base em informações fornecidas pelo usuário, como idade, IMC, número de filhos, sexo, tabagismo e região.  
+Foi desenvolvido utilizando **Python, Scikit-Learn, Pandas e Streamlit**.
 
-🚀 Funcionalidades
+---
 
-Limpeza e preparação dos dados automatizada por meio de um pipeline de dados
+## 🧠 Objetivo
 
-Treinamento e otimização de um modelo Random Forest Regressor
+Criar um modelo de aprendizado de máquina capaz de estimar o custo do seguro de saúde de uma pessoa, considerando fatores de risco e características individuais.  
+Além disso, o projeto inclui um **aplicativo interativo em Streamlit** que permite ao usuário inserir seus dados e visualizar a previsão em tempo real.
 
-Análise de importância das variáveis (feature importance)
+---
 
-Dashboard interativo para realizar previsões a partir dos dados inseridos pelo usuário
+## 🧩 Tecnologias Utilizadas
 
-🧰 Tecnologias Utilizadas
+- **Python 3.10+**
+- **Pandas** — tratamento e análise de dados  
+- **NumPy** — operações numéricas e estatísticas  
+- **Matplotlib** — visualização dos dados  
+- **Scikit-Learn** — criação e treino do modelo  
+- **Streamlit** — criação da interface interativa  
+- **Pickle** — salvar e carregar o modelo treinado  
 
-Python (pandas, numpy, scikit-learn, matplotlib, seaborn)
+---
 
-Streamlit (para criação do dashboard)
+## 📂 Estrutura do Projeto
 
-Pickle (para salvar e carregar o modelo treinado)
-
-📊 Dashboard
-
-O dashboard permite que o usuário insira informações como idade, IMC, região e número de filhos para obter uma previsão do custo do seguro.
-
-Para rodar o dashboard, execute o comando abaixo no terminal:
-
-streamlit run app.py
-
-📂 Estrutura do Projeto
 previsao_seguro_de_vida/
 │
 ├── data/
-│   └── insurance.csv
+│ └── insurance.csv # Base de dados original
 │
 ├── model/
-│   ├── best_forest_model.pkl
-│   └── full_pipeline.pkl
+│ ├── melhor_modelo_floresta.pkl # Modelo treinado (Random Forest)
+│ └── pipeline_completo.pkl # Pipeline de pré-processamento
 │
-├── app.py
-├── notebook_analise.ipynb
-└── README.md
+├── app.py # Aplicativo Streamlit para previsão
+├── treinamento_modelo.py # Script de treino e avaliação do modelo
+├── requirements.txt # Dependências do projeto
+└── README.md # Este arquivo
 
-🧪 Treinamento do Modelo
 
-O arquivo notebook_analise.ipynb contém:
+---
 
-Exploração e visualização dos dados
+## ⚙️ Como Executar o Projeto
 
-Análise de correlação
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/ViniciusFreitas06/previsao_seguro_de_vida.git
+   cd previsao_seguro_de_vida
 
-Preparação e transformação das variáveis
+2. **Crie e ative um ambiente virtual (opcional, mas recomendado)**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate   # Linux / Mac
+    venv\Scripts\activate      # Windows
 
-Treinamento e avaliação do modelo
 
-Salvamento do modelo final com Pickle
+3. **Instale as dependências**
+    ```bash
+    pip install -r requirements.txt
 
-🔮 Importância das Variáveis
 
-O modelo Random Forest foi utilizado para identificar as variáveis que mais impactam no valor do seguro.
-As principais foram:
+4. **Execute o app**
+    ```bash
+    streamlit run app.py
 
-Status de fumante (smoker)
+## 📊 Modelos Testados
 
-Idade (age)
+Durante o desenvolvimento, dois modelos foram comparados:
 
-IMC (bmi)
+| Modelo                 | RMSE (Erro Médio Quadrático) |
+|-------------------------|------------------------------|
+| Regressão Linear        | ~6000                        |
+| Random Forest Regressor | ~4400                        |
+
+O modelo **Random Forest** apresentou melhor desempenho e foi escolhido como modelo final.
+
+---
+
+## 🖥️ Funcionalidades do App
+
+- Inserção manual dos dados pelo usuário (idade, IMC, filhos, etc.);
+- Exibição da previsão **anual e mensal** do seguro;
+- Visualização das **importâncias das variáveis** no modelo;
+- Gráficos interativos mostrando a relação entre **variáveis numéricas e o custo do seguro**.
+
+---
+
+## 🧾 Exemplo de Uso
+
+**Exemplo de previsão gerada:**
+
+- **Idade:** 30 anos  
+- **IMC:** 25.0  
+- **Filhos:** 1  
+- **Sexo:** Masculino  
+- **Fumante:** Não  
+- **Região:** Southeast  
+
+**Resultado:**
+- 💰 **Custo anual estimado:** US$ 4.820,50  
+- 💵 **Custo mensal estimado:** US$ 401,71
