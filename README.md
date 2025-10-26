@@ -24,47 +24,24 @@ Além disso, o projeto inclui um **aplicativo interativo em Streamlit** que perm
 
 ---
 
-## 📂 Estrutura do Projeto
-
-previsao_seguro_de_vida/
-│
-├── data/
-│ └── insurance.csv # Base de dados original
-│
-├── model/
-│ ├── melhor_modelo_floresta.pkl # Modelo treinado (Random Forest)
-│ └── pipeline_completo.pkl # Pipeline de pré-processamento
-│
-├── app.py # Aplicativo Streamlit para previsão
-├── treinamento_modelo.py # Script de treino e avaliação do modelo
-├── requirements.txt # Dependências do projeto
-└── README.md # Este arquivo
-
-
----
-
 ## ⚙️ Como Executar o Projeto
 
 1. **Clone o repositório**
    ```bash
    git clone https://github.com/ViniciusFreitas06/previsao_seguro_de_vida.git
    cd previsao_seguro_de_vida
-
 2. **Crie e ative um ambiente virtual (opcional, mas recomendado)**
     ```bash
     python -m venv venv
     source venv/bin/activate   # Linux / Mac
     venv\Scripts\activate      # Windows
-
-
 3. **Instale as dependências**
     ```bash
     pip install -r requirements.txt
-
-
 4. **Execute o app**
     ```bash
     streamlit run app.py
+---
 
 ## 📊 Modelos Testados
 
